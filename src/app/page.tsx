@@ -19,22 +19,22 @@ export default function Home() {
       <InquiryPopup />
       <Chatbot />
 
+      {/* Floating Brand Logo - Outer Beige Background */}
+      <div className="brand-logo">
+        <Image 
+           src="/logo_suia.webp" 
+           alt="Majestique Evolvus Logo" 
+           width={130} 
+           height={60} 
+           style={{ height: "auto", objectFit: "contain" }} 
+           priority
+         />
+      </div>
+
       {/* Floating Island Hero Section */}
       <section className="hero">
         <HeroSlideshow />
         <div className="hero-overlay"></div>
-        
-        {/* Floating Brand Logo - Inner Beige Background */}
-        <div className="brand-logo">
-          <Image 
-             src="/logo_suia.webp" 
-             alt="Majestique Evolvus Logo" 
-             width={130} 
-             height={60} 
-             style={{ height: "auto", objectFit: "contain" }} 
-             priority
-           />
-        </div>
         
         {/* Navbar */}
         <nav className="navbar">

@@ -63,6 +63,7 @@ a {
   height: 88vh;
   min-height: 720px;
   margin: 1.5rem 2.5rem 2.5rem 2.5rem;
+  margin-top: 5rem;
   border-radius: 40px;
   display: flex;
   align-items: center;
@@ -74,9 +75,10 @@ a {
 }
 
 .hero-inner-padded {
-  padding: 10.5rem 4rem 10.5rem 4rem;
+  padding: 6.5rem 4rem 10.5rem 4rem;
   width: 100%;
   z-index: 2;
+  margin-top: -1rem; /* Slightly shifts entire content block up */
 }
 
 .navbar {
@@ -720,17 +722,9 @@ section {
    ============================== */
 .brand-logo {
   position: absolute;
-  top: 2rem;
+  top: 1.4rem;
   left: 2.5rem;
   z-index: 100;
-  background-color: var(--color-bg);
-  padding: 0.5rem 1.2rem;
-  border-radius: 50px;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
-  border: 1px solid rgba(255, 255, 255, 0.2);
-  display: flex;
-  align-items: center;
-  justify-content: center;
 }
 
 .hero-search-bar {
@@ -776,10 +770,7 @@ html, body {
 @media (max-width: 900px) {
   .mobile-search-wrapper {
     display: block;
-    padding: 0 1.2rem 1.5rem 1.2rem;
-    margin-top: -3rem;
-    position: relative;
-    z-index: 10;
+    padding: 1.5rem 1.2rem;
   }
 
   .mobile-search-wrapper .hero-search-bar {
@@ -888,6 +879,7 @@ html, body {
 
   .hero {
     margin: 0.8rem;
+    margin-top: 5rem;
     border-radius: 20px;
     height: auto;
     min-height: 75vh;
@@ -896,7 +888,7 @@ html, body {
   .hero-inner-padded {
     padding: 2rem 1.2rem;
     padding-bottom: 2.5rem;
-    margin-top: 5rem; /* Allow space so the navbar doesn't overlap the hero-eyebrow text */
+    margin-top: 3.5rem; /* Allow space so the navbar doesn't overlap the hero-eyebrow text */
   }
 
   .hero-eyebrow {
