@@ -60,10 +60,10 @@ a {
    ============================== */
 .hero {
   position: relative;
-  height: 88vh;
+  height: 85vh;
   min-height: 720px;
   margin: 1.5rem 2.5rem 2.5rem 2.5rem;
-  margin-top: 5rem;
+  margin-top: 4rem;
   border-radius: 40px;
   display: flex;
   align-items: center;
