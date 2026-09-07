@@ -75,10 +75,10 @@ a {
 }
 
 .hero-inner-padded {
-  padding: 6.5rem 4rem 10.5rem 4rem;
+  padding: 4.5rem 4rem 7.5rem 4rem;
   width: 100%;
   z-index: 2;
-  margin-top: -1rem; /* Slightly shifts entire content block up */
+  margin-top: 0;
 }
 
 .navbar {
