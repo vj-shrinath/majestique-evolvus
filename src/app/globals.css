@@ -868,64 +868,74 @@ html, body {
   }
 
   .nav-btn-contact {
-    padding: 0.55rem 1.2rem !important;
-    font-size: 0.72rem !important;
-    margin-left: 0.8rem !important;
+    padding: 0.45rem 1rem !important;
+    font-size: 0.65rem !important;
+    margin-left: 0.6rem !important;
   }
 
   .brand-logo {
-    left: 1rem;
+    left: 0.8rem;
     top: 1rem;
+  }
+  
+  .brand-logo img {
+    width: 100px !important;
+    height: auto !important;
   }
 
   .hero {
-    margin: 0.8rem;
-    margin-top: 5rem;
-    border-radius: 20px;
+    margin: 0.6rem;
+    margin-top: 3.8rem; /* Creates perfect gap for shrunken logo */
+    border-radius: 16px;
     height: auto;
-    min-height: 75vh;
+    min-height: 70vh;
   }
 
   .hero-inner-padded {
-    padding: 2rem 1.2rem;
-    padding-bottom: 2.5rem;
-    margin-top: 3.5rem; /* Allow space so the navbar doesn't overlap the hero-eyebrow text */
+    padding: 1.5rem 1.2rem;
+    padding-bottom: 2rem;
+    margin-top: 2rem; 
   }
 
   .hero-eyebrow {
-    font-size: 0.68rem;
-    padding: 0.35rem 0.8rem;
-    letter-spacing: 0.14em;
+    font-size: 0.58rem;
+    padding: 0.25rem 0.7rem;
+    letter-spacing: 0.12em;
+    margin-bottom: 0.5rem;
   }
 
   .hero-content h1 {
-    font-size: 2.3rem;
-    line-height: 1.18;
+    font-size: 1.95rem; /* Shrunk for perfect mobile fit */
+    line-height: 1.15;
   }
 
   .hero-subtext {
-    font-size: 0.95rem;
-    line-height: 1.5;
-    margin-bottom: 1.2rem;
-  }
-
-  .hero-price-badge {
-    padding: 0.5rem 1.1rem;
+    font-size: 0.82rem;
+    line-height: 1.4;
     margin-bottom: 1rem;
   }
 
+  .hero-price-badge {
+    padding: 0.4rem 0.9rem;
+    margin-bottom: 0.8rem;
+  }
+
+  .hero-price-badge .price-label {
+    font-size: 0.6rem;
+  }
+
   .hero-price-badge .price-value {
-    font-size: 1.35rem;
+    font-size: 1.15rem;
   }
 
   .hero-cta-group {
     flex-wrap: wrap;
-    gap: 0.8rem;
+    gap: 0.6rem;
   }
 
   .btn-hero-primary, .btn-hero-secondary {
-    padding: 0.75rem 1.5rem;
-    font-size: 0.78rem;
+    padding: 0.65rem 1.2rem;
+    font-size: 0.7rem;
   }
 
   /* Hide search bar inside hero on mobile - it overflows */
@@ -1044,6 +1054,10 @@ html, body {
 
 /* Mobile & Tablet Responsiveness (< 768px) */
 @media (max-width: 768px) {
+  html {
+    zoom: 1; /* Reset global zoom on mobile so tap targets and text stay large */
+  }
+
   .deck-sticky-stage {
     padding: 0.8rem 0.6rem;
     justify-content: center;
