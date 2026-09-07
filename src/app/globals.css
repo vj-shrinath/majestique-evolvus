@@ -26,6 +26,7 @@
 }
 
 html {
+  zoom: 0.9; /* Literally mimics browser zooming for ALL elements */
   scroll-behavior: smooth;
 }
 
@@ -60,10 +61,10 @@ a {
    ============================== */
 .hero {
   position: relative;
-  height: 85vh;
+  height: 88vh;
   min-height: 720px;
   margin: 1.5rem 2.5rem 2.5rem 2.5rem;
-  margin-top: 4rem;
+  margin-top: 5rem;
   border-radius: 40px;
   display: flex;
   align-items: center;
@@ -182,7 +183,7 @@ a {
   align-items: center;
   gap: 10px;
   font-family: var(--font-nav);
-  font-size: 0.65rem;
+  font-size: 0.75rem;
   font-weight: 700;
   letter-spacing: 0.2em;
   text-transform: uppercase;
@@ -218,7 +219,7 @@ a {
 }
 
 .hero-content h1 {
-  font-size: clamp(2.0rem, 3.2vw, 3.0rem);
+  font-size: clamp(2.4rem, 4vw, 3.5rem);
   line-height: 1.15;
   margin-top: 0.3rem;
   margin-bottom: 0.8rem;
@@ -229,7 +230,7 @@ a {
 }
 
 .hero-subtext {
-  font-size: 0.92rem;
+  font-size: 1.05rem;
   line-height: 1.6;
   color: rgba(255, 255, 255, 0.92);
   font-weight: 400;
@@ -251,7 +252,7 @@ a {
 
 .hero-price-badge .price-label {
   font-family: var(--font-nav);
-  font-size: 0.62rem;
+  font-size: 0.68rem;
   text-transform: uppercase;
   letter-spacing: 0.12em;
   color: rgba(255, 255, 255, 0.75);
@@ -259,7 +260,7 @@ a {
 
 .hero-price-badge .price-value {
   font-family: var(--font-heading);
-  font-size: 1.25rem;
+  font-size: 1.45rem;
   font-weight: 700;
   color: #f5d77f;
   display: flex;
@@ -268,7 +269,7 @@ a {
 }
 
 .hero-price-badge .price-value small {
-  font-size: 0.7rem;
+  font-size: 0.8rem;
   font-weight: 500;
   color: rgba(255, 255, 255, 0.8);
 }
