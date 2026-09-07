@@ -139,6 +139,40 @@ export default function Chatbot() {
         .chat-button-pulse {
           animation: pulseGlow 2s infinite;
         }
+
+        .mobile-chat-overlay {
+          display: none;
+        }
+
+        @media (max-width: 768px) {
+          .mobile-chat-overlay {
+            display: block;
+            position: fixed;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background: rgba(0, 0, 0, 0.35);
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
+            z-index: 9997;
+            animation: fadeIn 0.3s ease;
+          }
+
+          .mobile-chat-window {
+            width: 92vw !important;
+            height: 60vh !important;
+            max-height: 450px !important;
+            right: 4vw !important;
+            bottom: 85px !important;
+            z-index: 9998 !important; /* Ensure it stays above overlay */
+          }
+          
+          .mobile-chat-btn {
+            right: 15px !important;
+            bottom: 15px !important;
+            width: 55px !important;
+            height: 55px !important;
+            z-index: 9999 !important; /* Keep button above everything */
+          }
+        }
       `}</style>
 
       {/* Animated Running Character */}
@@ -236,7 +270,7 @@ export default function Chatbot() {
       {/* Floating Chat Button */}
       <button 
         onClick={() => setIsOpen(!isOpen)}
-        className={mascotState === "holding" ? "chat-button-pulse" : ""}
+        className={`mobile-chat-btn ${mascotState === "holding" ? "chat-button-pulse" : ""}`}
         style={{
           position: "fixed", bottom: "30px", right: "30px", zIndex: 9998,
           width: "65px", height: "65px", borderRadius: "50%",
@@ -252,9 +286,14 @@ export default function Chatbot() {
         {isOpen ? "×" : <svg width="28" height="28" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" viewBox="0 0 24 24"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg>}
       </button>
 
+      {/* Mobile Chat Blur Overlay */}
+      {isOpen && (
+        <div className="mobile-chat-overlay" onClick={() => setIsOpen(false)} />
+      )}
+
       {/* Chat Window */}
       {isOpen && (
-        <div style={{
+        <div className="mobile-chat-window" style={{
           position: "fixed", bottom: "110px", right: "30px", zIndex: 9998,
           width: "360px", height: "550px", backgroundColor: "#fff",
           borderRadius: "16px", boxShadow: "0 15px 40px rgba(0,0,0,0.2)",

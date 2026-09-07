@@ -44,24 +44,11 @@ function AnimatedCounter({ end, suffix = "", prefix = "", label, duration = 2000
   }, [started, end, duration]);
 
   return (
-    <div ref={ref} style={{ textAlign: "center" }}>
-      <div style={{
-        fontSize: "clamp(2.5rem, 5vw, 3.5rem)",
-        fontWeight: 700,
-        fontFamily: "var(--font-heading)",
-        color: "#b38b22",
-        lineHeight: 1
-      }}>
+    <div ref={ref} className="stat-item" style={{ textAlign: "center", flex: 1 }}>
+      <div className="stat-number">
         {prefix}{count}{suffix}
       </div>
-      <div style={{
-        fontSize: "0.85rem",
-        color: "#888",
-        textTransform: "uppercase",
-        letterSpacing: "2px",
-        marginTop: "0.8rem",
-        fontWeight: 600
-      }}>
+      <div className="stat-label">
         {label}
       </div>
     </div>
@@ -70,23 +57,70 @@ function AnimatedCounter({ end, suffix = "", prefix = "", label, duration = 2000
 
 export default function StatsBar() {
   return (
-    <div style={{
-      display: "flex",
-      justifyContent: "center",
-      alignItems: "center",
-      gap: "clamp(2rem, 6vw, 5rem)",
-      padding: "4rem 2rem",
-      flexWrap: "wrap",
-      maxWidth: "1000px",
-      margin: "0 auto",
-    }}>
-      <AnimatedCounter end={10} suffix="+" label="Acres Campus" />
-      <div style={{ width: "1px", height: "60px", backgroundColor: "#e0e0e0" }} />
-      <AnimatedCounter end={26} label="Storeys Elevated" />
-      <div style={{ width: "1px", height: "60px", backgroundColor: "#e0e0e0" }} />
-      <AnimatedCounter end={70} suffix="+" label="Amenities" />
-      <div style={{ width: "1px", height: "60px", backgroundColor: "#e0e0e0" }} />
-      <AnimatedCounter end={2028} label="Possession Year" prefix="" duration={2500} />
-    </div>
+    <>
+      <style>{`
+        .stats-container {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          gap: clamp(2rem, 6vw, 5rem);
+          padding: 4rem 2rem;
+          flex-wrap: wrap;
+          max-width: 1000px;
+          margin: 0 auto;
+        }
+        .stat-divider {
+          width: 1px;
+          height: 60px;
+          background-color: #e0e0e0;
+        }
+        .stat-number {
+          font-size: clamp(2.5rem, 5vw, 3.5rem);
+          font-weight: 700;
+          font-family: var(--font-heading);
+          color: #b38b22;
+          line-height: 1;
+        }
+        .stat-label {
+          font-size: 0.85rem;
+          color: #888;
+          text-transform: uppercase;
+          letter-spacing: 2px;
+          margin-top: 0.8rem;
+          font-weight: 600;
+        }
+        
+        /* Mobile Specific Overrides to keep 1 row */
+        @media (max-width: 768px) {
+          .stats-container {
+            flex-wrap: nowrap;
+            gap: 0.3rem;
+            padding: 2.5rem 0.5rem;
+            justify-content: space-between;
+          }
+          .stat-divider {
+            height: 40px;
+          }
+          .stat-number {
+            font-size: 1.25rem !important;
+          }
+          .stat-label {
+            font-size: 0.46rem !important;
+            letter-spacing: 0.5px !important;
+            margin-top: 0.4rem !important;
+            line-height: 1.2;
+          }
+        }
+      `}</style>
+      <div className="stats-container">
+        <AnimatedCounter end={10} suffix="+" label="Acres Campus" />
+        <div className="stat-divider" />
+        <AnimatedCounter end={26} label="Storeys" />
+        <div className="stat-divider" />
+        <AnimatedCounter end={70} suffix="+" label="Amenities" />
+        <div className="stat-divider" />
+        <AnimatedCounter end={2028} label="Year" prefix="" duration={2500} />
+      </div>
+    </>
   );
 }

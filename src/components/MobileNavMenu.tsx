@@ -22,6 +22,7 @@ export default function MobileNavMenu() {
           <a href="#pricing" onClick={() => setIsOpen(false)}>Residences</a>
           <a href="#amenities" onClick={() => setIsOpen(false)}>Amenities</a>
           <a href="#brochures" onClick={() => setIsOpen(false)}>Brochures</a>
+          <a href="#contact" onClick={() => setIsOpen(false)} style={{ color: "#d4af37", fontWeight: "bold" }}>Contact Us</a>
         </div>
       )}
     </>

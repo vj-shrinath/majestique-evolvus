@@ -108,30 +108,30 @@ export default function Home() {
         <ScrollReveal>
           <h2 className="section-title">Majestique Evolvus – 3 & 4 BHK Luxury Flats in Kharadi, Pune</h2>
         </ScrollReveal>
-        <div className="grid grid-2" style={{ alignItems: "center" }}>
-          <ScrollReveal direction="left">
-            <div>
+        <div className="overview-container">
+          <div className="overview-text">
+            <ScrollReveal direction="left">
               <p style={{ marginBottom: "1rem", lineHeight: 1.8 }}>
                 Experience the pinnacle of luxury real estate in Pune. <strong>Majestique Evolvus in Central Kharadi</strong> offers thoughtfully designed 3 & 4 BHK luxury residences for sale in Kharadi, equipped with world-class specifications and lifestyle amenities that redefine comfort. Welcome to an iconic development that stands tall in Pune's most sought-after neighborhood.
               </p>
               <ul style={{ listStyle: "none", lineHeight: 2, marginTop: "1rem", padding: 0 }}>
                 <li style={{ display: "flex", alignItems: "center", gap: "10px" }}><svg width="18" height="18" fill="none" stroke="#d4af37" strokeWidth="2" viewBox="0 0 24 24"><path d="M12 2l3 6 7 1-5 5 1 7-6-3-6 3 1-7-5-5 7-1z"/></svg> <strong>Sprawling 10 Acres of Grand Development</strong></li>
-                <li style={{ display: "flex", alignItems: "center", gap: "10px" }}><svg width="18" height="18" fill="none" stroke="#555" strokeWidth="2" viewBox="0 0 24 24"><path d="M4 2v20M20 2v20M8 22V2h8v20M12 10h.01M12 14h.01M16 10h.01M16 14h.01M8 10h.01M8 14h.01"/></svg> <strong>6 Iconic Towers (Tower 1–4, 13 &amp; 14)</strong></li>
+                <li style={{ display: "flex", alignItems: "center", gap: "10px" }}><svg width="18" height="18" fill="none" stroke="#555" strokeWidth="2" viewBox="0 0 24 24"><path d="M4 2v20M20 2v20M8 22V2h8v20M12 10h.01M12 14h.01M16 10h.01M16 14h.01M8 10h.01M8 14h.01"/></svg> <strong>6 Iconic Towers (Tower 1–4, 13 & 14)</strong></li>
                 <li style={{ display: "flex", alignItems: "center", gap: "10px" }}><svg width="18" height="18" fill="none" stroke="#555" strokeWidth="2" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg> <strong>Possession: Dec 2028 (As per RERA)</strong></li>
               </ul>
-            </div>
-          </ScrollReveal>
-          <ScrollReveal direction="right">
-            <div>
+            </ScrollReveal>
+          </div>
+          <div className="overview-image">
+            <ScrollReveal direction="right">
               <Image 
                  src="/asset-2.jpeg" 
                  alt="Majestique Evolvus upper kharadi luxury living" 
                  width={600} 
-                 height={400} 
-                 style={{ borderRadius: "12px", width: "100%", height: "auto" }}
+                 height={600} 
+                 className="overview-img-element"
                />
-            </div>
-          </ScrollReveal>
+            </ScrollReveal>
+          </div>
         </div>
       </section>
 
@@ -317,16 +317,38 @@ export default function Home() {
           ].map((doc, idx) => (
             <ScrollReveal key={doc.id} delay={idx * 150}>
               <div className="brochure-card">
-                <h3 style={{ marginBottom: "1rem" }}>{doc.title}</h3>
-                {/* PDF Preview Frame */}
-                <iframe 
-                  src={`${doc.url}#toolbar=0&navpanes=0&scrollbar=0`}
-                  style={{ width: "100%", height: "300px", border: "1px solid #eee", borderRadius: "8px", marginBottom: "1.5rem" }}
-                  title={doc.title}
-                />
-                <div style={{ marginTop: "auto", display: "flex", justifyContent: "space-between", gap: "1rem" }}>
-                  <a href={doc.url} target="_blank" rel="noopener noreferrer" className="btn btn-dark" style={{ flex: 1, padding: "0.8rem", textAlign: "center", fontSize: "0.9rem" }}>View PDF</a>
-                  <a href={doc.url} download target="_blank" rel="noopener noreferrer" className="btn btn-outline" style={{ flex: 1, padding: "0.8rem", textAlign: "center", fontSize: "0.9rem" }}>Download</a>
+                {/* Mobile Specific Icon (Hidden on Desktop via CSS) */}
+                <div className="mobile-brochure-icon">
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#d4af37" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+                    <path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z" />
+                    <polyline points="14 2 14 8 20 8" />
+                  </svg>
+                </div>
+                
+                <div className="brochure-card-body">
+                  <h3 className="brochure-title">{doc.title}</h3>
+                  {/* PDF Preview Frame with Native Fallback */}
+                  <object 
+                    className="brochure-preview-obj"
+                    data={`${doc.url}#toolbar=0&navpanes=0&scrollbar=0`}
+                    type="application/pdf"
+                    title={doc.title}
+                  >
+                    {/* Fallback shown if PDF preview is blocked or unsupported */}
+                    <div className="brochure-fallback">
+                      <svg width="56" height="56" viewBox="0 0 24 24" fill="none" stroke="#d4af37" strokeWidth="1.2" strokeLinecap="round" strokeLinejoin="round" style={{ marginBottom: "1rem", opacity: 0.8 }}>
+                        <path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z" />
+                        <polyline points="14 2 14 8 20 8" />
+                        <text x="12" y="16" fontSize="5" fontWeight="bold" fill="#d4af37" stroke="none" textAnchor="middle">PDF</text>
+                      </svg>
+                      <p style={{ color: "#666", fontSize: "0.85rem", margin: 0 }}>Preview unavailable vertically</p>
+                      <p style={{ color: "#999", fontSize: "0.75rem", marginTop: "0.2rem" }}>Tap Download below</p>
+                    </div>
+                  </object>
+                  <div className="brochure-actions">
+                    <a href={doc.url} target="_blank" rel="noopener noreferrer" className="btn btn-dark brochure-btn">View PDF</a>
+                    <a href={doc.url} download target="_blank" rel="noopener noreferrer" className="btn btn-outline brochure-btn">Download</a>
+                  </div>
                 </div>
               </div>
             </ScrollReveal>
